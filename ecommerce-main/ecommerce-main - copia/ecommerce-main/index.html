@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="responsive.css">
+    <script src="script.js"></script>
+    <script src="data.js"></script>
+</head>
+<body>
+    <nav> 
+        <img src="/images/logo.png" alt="">
+        <ul>
+            <li><a href="#">Comercio</a></li>
+            <li><a href="#">Catálogo</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+
+            <div class="cart-icon-container">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-counter">0</span>
+            </div>
+
+           
+        
+    </nav>
+    <div class="hidden" id="cart-dropdown">
+        <button id="close-cart" class="close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <div id="cart-total">
+            <p>Total: $ <span id="total-amount">0.00</span></p>
+        </div>
+        <hr>
+        <div id="cart">
+            <div class="cart-item">
+                <div class="info">
+                    <p></p>
+                    <div>
+                        <button>-</button>
+                        <span>0</span>
+                        <button>+</button>
+                    </div>
+                    <p></p>
+                    <button><i class="fas fa-trash-alt"></i></button>
+                </div>
+            </div>
+        </div>
+        <button id="whatsappBtn" class="whatsapp-button">Pedir por WhatsApp</button>
+    </div>
+    
+
+
+
+    <section id="home">
+        <h1>Tecnología de Vanguardia</h1>
+        <p>Encuentra los últimos modelos de celulares, audífonos y más. Descubre nuestra colección y mantente conectado con estilo y funcionalidad.</p>
+    
+        <button class="btn-home">Comprar Ahora</button>
+    </section>
+
+    <section id="characteristic " class="characteristic "  >
+        <div class="fea-base">
+            <div class="fea-box">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Variedad de Dispositivos</h3>
+                <p>Encuentra una amplia gama de dispositivos tecnológicos que se adaptan a cada necesidad y preferencia.</p>
+            </div>
+    
+            <div class="fea-box">
+                <i class="fas fa-headphones-alt"></i>
+                <h3>Sonido de Alta Calidad</h3>
+                <p>Disfruta de audífonos con sonido envolvente y detalles impecables.</p>
+            </div>
+    
+            <div class="fea-box">
+                <i class="fas fa-cogs"></i>
+                <h3>Innovación y Tecnología</h3>
+                <p>Experimenta la excelencia con productos de última generación y tecnología avanzada.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features print-section">
+        <h2>Productos Destacados</h2>
+        <p>Descubre nuestra selección de dispositivos tecnológicos que destacan por su innovación y calidad excepcionales.</p>
+        
+        <div class="products-box" id="products-box">
+            
+        </div>
+    </div>
+
+        </div>
+    </section>
+
+        <section id="offer">
+            <div class="offer-text">
+                <h2>Ofertas Especiales</h2>
+                <p>Aprovecha nuestras ofertas especiales en dispositivos tecnológicos y mantente a la vanguardia en todo momento.</p>
+                <button class="btn-offer">Comprar Ahora</button>
+            </div>
+
+            <div class="offer-image">
+                <img src="/images/o.jpg" alt="oferta">
+            </div>
+
+        </section>
+
+        <section id="customers">
+            <h2>Clientes Satisfechos</h2>
+            <div class="custom-box">
+                <div class="profile">
+                    <div class="image-container">
+                        <img src="/images/c1.jpg" alt="">
+                    </div>
+                    <h6>Sofia</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, debitis?</p>
+                </div>
+
+                <div class="profile">
+                    <div class="image-container">
+                        <img src="/images/c2.jpg" alt="">
+                    </div>
+                    <h6>Arnold</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, debitis?</p>
+                </div>
+
+                <div class="profile">
+                    <div class="image-container">
+                        <img src="/images/c3.jpg" alt="">
+                    </div>
+                    <h6>Doris</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, debitis?</p>
+                </div>
+            </div>
+
+        </section>
+    
+        <section id="footer">
+            <div class="footer-col">
+                <h3>Productos Destacados</h3>
+                <ul>
+                    <li>Celulares</li>
+                    <li>Audífonos</li>
+                    <li>Accesorios Tecnológicos</li>
+                    <li>Dispositivos Inteligentes</li>
+                </ul>
+            </div>
+        
+            <div class="footer-col">
+                <h3>Productos Populares</h3>
+                <ul>
+                    <li>Celulares</li>
+                    <li>Audífonos</li>
+                    <li>Accesorios Tecnológicos</li>
+                    <li>Dispositivos Inteligentes</li>
+                </ul>
+            </div>
+        
+            <div class="footer-col">
+                <h3>Últimas Novedades</h3>
+                <ul>
+                    <li>Celulares</li>
+                    <li>Audífonos</li>
+                    <li>Accesorios Tecnológicos</li>
+                    <li>Dispositivos Inteligentes</li>
+                </ul>
+            </div>
+        
+            <div class="copyright">
+                <p>Copyright 2025 Todos los derechos reservados, esta página fue creada por Edukuk</p>
+            </div>
+        </section>
+
+</body>
+</html>

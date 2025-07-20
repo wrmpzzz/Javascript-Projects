@@ -1,0 +1,87 @@
+/* Media queries para hacer la sección responsiva */
+
+@media (max-width: 1200px) {
+    #home h1 {
+        font-size: 3rem;
+    }
+
+    #home p {
+        width: 60%;
+        font-size: 1rem;
+    }
+
+    #home .btn-home {
+        padding: 10px 30px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 776px) {
+
+    nav ul  {
+        display: none;
+    }
+    #home {
+        align-items: center;
+        text-align: center;
+        padding: 2vw 4vw;
+        background-size: contain;  
+    }
+
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    #home p {
+        width: 80%;
+        font-size: 0.95rem;
+    }
+
+    #home .btn-home {
+        padding: 10px 25px;
+        font-size: 0.8rem;
+    }
+
+    #features .products .cost {
+        right: 20px;
+        bottom: 200px;
+    }
+    #cart-dropdown {
+        top: 60px;
+        right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #cart-dropdown {
+        top: 60px;
+    }
+
+    #home {
+        padding: 3vw 2vw;
+        background-size: contain;  
+        background-position: top start;  
+    }
+
+    #home h1 {
+        font-size: 2rem;
+    }
+
+    #home p {
+        width: 90%;
+        font-size: 0.9rem;
+        line-height: 25px;
+    }
+
+    #home .btn-home {
+        padding: 8px 20px;
+        font-size: 0.75rem;
+    }
+
+    
+    #features .products .cost {
+ 
+        bottom: 100px;
+    }
+}
