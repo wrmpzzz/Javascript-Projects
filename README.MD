@@ -6,3 +6,4 @@ Este repositorio contiene mis proyectos de práctica en JavaScript vanilla.
 
 - **Arkanoid**: Juego clásico hecho con canvas.
 - **Tetris**: Juego clásico hecho con canvas.
+- **Fetch API**: Ejemplo de uso de la API Fetch.
