@@ -109,34 +109,36 @@
     </section>
     <section id="results">
       <h2>wpm</h2>
-
+      <h3 id="wpm-result"></h3>
       <h2>accuracy</h2>
-      <h3></h3>
+      <h3 id="accuracy-result"></h3>
     </section>
   </main>
 </body>
 
-<script type="module">
-  import { words as INITIAL_WORDS } from "./data.js";
+<script>
+  const INITIAL_WORDS = ["lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipisicing", "elit", "sed", "do", "eiusmod", "tempor", "incididunt", "ut", "labore", "et", "dolore", "magna", "aliqua", "enim", "ad", "minim", "veniam", "quis", "nostrud", "exercitation", "ullamco", "laboris", "nisi", "aliquip", "ex", "ea", "commodo", "consequat", "duis", "aute", "irure", "in", "reprehenderit", "voluptate", "velit", "esse", "cillum", "fugiat", "nulla", "pariatur", "excepteur", "sint", "occaecat", "cupidatat", "non", "proident", "sunt", "culpa", "qui", "officia", "deserunt", "mollit", "anim", "id", "est", "laborum"];
+  
   const $time = document.querySelector("time");
   const $paragraph = document.querySelector("p");
   const $input = document.querySelector("input");
 
   const $game = document.querySelector("#game");
   const $results = document.querySelector("#results");
-  const $wpm = $results.querySelector("h3");
-  const $accuracy = $results.querySelector("h3:last-child");
+  const $wpm = document.querySelector("#wpm-result");
+  const $accuracy = document.querySelector("#accuracy-result");
 
   const INITIAL_TIME = 30;
 
   let words = [];
   let currentTime = INITIAL_TIME;
+  let intervalId;
 
   initGame();
   initEvents();
 
   function initGame() {
-    words = INITIAL_WORDS.toSorted(() => Math.random() - 0.5).slice(0, 32);
+    words = INITIAL_WORDS.sort(() => Math.random() - 0.5).slice(0, 32);
     currentTime = INITIAL_TIME;
 
     $time.textContent = currentTime;
@@ -155,12 +157,13 @@
     $firstWord.classList.add("active");
     $firstWord.querySelector("letter").classList.add("active");
 
-    const interValId = setInterval(() => {
+    intervalId = setInterval(() => {
       currentTime--;
       $time.textContent = currentTime;
 
       if (currentTime === 0) {
-        clearInterval(interValId);
+        clearInterval(intervalId);
+        gameOver();
       }
     }, 1000);
   }
@@ -182,6 +185,11 @@
       event.preventDefault();
 
       const $nextWord = $currentWord.nextElementSibling;
+
+      if (!$nextWord) {
+        gameOver();
+        return;
+      }
 
       const $nextLetter = $nextWord.querySelector("letter");
 
@@ -206,20 +214,15 @@
       const $prevWord = $currentWord.previousElementSibling;
       const $prevLetter = $currentLetter.previousElementSibling;
 
-      if (!$prevWord && !$prevLetter) {
+      if ($input.value.length === 0 && $prevWord) {
         event.preventDefault();
-        return;
-      }
+        $currentWord.classList.remove("active", "marked");
+        $currentLetter.classList.remove("active");
 
-      const $wordMarked = $paragraph.querySelector("x-word.marked");
-      if ($wordMarked && !$prevLetter) {
-        event.preventDefault();
-        $prevWord.classList.remove("marked");
+        $prevWord.classList.remove("correct", "incorrect");
         $prevWord.classList.add("active");
 
         const $letterToGo = $prevWord.querySelector("letter:last-child");
-
-        $currentLetter.classList.remove("active");
         $letterToGo.classList.add("active");
 
         $input.value = [
@@ -227,7 +230,6 @@
         ]
           .map(($el) => {
             return $el.classList.contains("correct") ? $el.innerText : "*";
-            $el.innerText;
           })
           .join("");
       }
@@ -268,22 +270,27 @@
       $nextActiveLetter.classList.add("active");
     } else {
       $currentLetter.classList.add("active", "is-last");
-      //TODO: gameover si no hay proxima palabra
     }
   }
 
   function gameOver() {
+    clearInterval(intervalId);
     $game.style.display = "none";
     $results.style.display = "flex";
 
-    const $correctWords = $paragraph.querySelectorAll("x-word.correct").length
+    const $correctWords = $paragraph.querySelectorAll("x-word.correct").length;
 
-    const $correctLetter = $paragraph.querySelectorAll("letter.correct").length
+    const $correctLetters = $paragraph.querySelectorAll("letter.correct").length;
 
-    const $incorrectLetters = $paragraph.querySelectorAll("letter.incorrect").length
+    const $incorrectLetters = $paragraph.querySelectorAll("letter.incorrect").length;
 
-    const totalLetters = $correctLetter + incorrectLetters
+    const totalLetters = $correctLetters + $incorrectLetters;
   
-    const accuracy = totalLetters > 0 ? ($correctLetter / totalLetters) * 100 : 0
-}
+    const accuracy = totalLetters > 0 ? ($correctLetters / totalLetters) * 100 : 0;
+    
+    const wpm = Math.round(($correctLetters / 5) / ((INITIAL_TIME - currentTime) / 60));
+    
+    $wpm.textContent = wpm;
+    $accuracy.textContent = Math.round(accuracy) + "%";
+  }
 </script>
