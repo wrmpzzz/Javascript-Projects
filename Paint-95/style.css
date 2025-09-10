@@ -1,0 +1,161 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+  background: #222;
+  padding: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Título */
+h1 {
+  color: #fce300;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+h1 img {
+  height: 16px;
+  width: 16px;
+}
+
+/* Canvas */
+canvas {
+  background: #fff;
+  border: 1px solid #808080;
+  display: block;
+}
+
+/* Header */
+header {
+  grid-area: header;
+  background: silver;
+  padding: 2px;
+  display: flex;
+  gap: 4px;
+}
+
+header button {
+  border: 0;
+  background: transparent;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+header button:hover {
+  cursor: pointer;
+  background: #ccc;
+}
+
+/* Footer */
+footer {
+  background: silver;
+  padding: 4px;
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Container */
+#container {
+  border: 1px solid #808080;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "aside main main"
+    "footer footer footer";
+  gap: 2px;
+}
+
+/* Aside */
+aside {
+  grid-area: aside;
+  background: silver;
+  width: 52px;
+  padding-top: 2px;
+}
+
+/* Barra de herramientas */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+}
+
+nav > button {
+  width: 24px;
+  height: 24px;
+  background-color: #bdbdbd;
+  border: 1px solid #eee;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-right-color: #000;
+  border-bottom-color: #000;
+  image-rendering: pixelated;
+  background-size: 16px 16px;
+}
+
+/* Botón presionado */
+nav > button:active {
+  border-color: #000;
+  border-right-color: #eee;
+  border-bottom-color: #eee;
+}
+
+/* Botón activo (modo actual) */
+nav > button.active {
+  outline: 2px solid #fce300;
+  background-color: #aaa;
+}
+
+/* Iconos de herramientas */
+#draw-btn {
+  background-image: url("./icons/draw.png");
+}
+
+#erase-btn {
+  background-image: url("./icons/erase.png");
+}
+
+#picker-btn {
+  background-image: url("./icons/picker.png");
+  
+}
+
+#rectangle-btn {
+  background-image: url("./icons/rectangle.png");
+}
+
+#ellipse-btn {
+  background-image: url("./icons/ellipse.png");
+}
+
+#clear-btn {
+  background-image: url("./icons/clear.png");
+}
+
+/* Main */
+main {
+  grid-area: main;
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}

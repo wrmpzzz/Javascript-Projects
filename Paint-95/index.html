@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paint.js</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>
+    <img src="./icon.png" alt="Paint icon" />
+    <span>Paint.js</span>
+  </h1>
+
+  <div id="container">
+    <header>
+      <button>File</button>
+      <button>Edit</button>
+      <button>View</button>
+      <button>Image</button>
+      <button>Options</button>
+      <button>Help</button>
+    </header>
+
+    <aside>
+      <nav>
+        <button class="active" id="draw-btn" title="Pincel"></button>
+        <button id="erase-btn" title="Borrar"></button>
+        <button id="rectangle-btn" title="Rectángulo"></button>
+        <button id="ellipse-btn" title="Elipse"></button>
+        <button id="picker-btn" title="Capturar Color"></button>
+        <button id="clear-btn" title="Limpiar dibujo"></button>
+      </nav>
+    </aside>
+
+    <main>
+      <canvas id="canvas" width="300" height="200"></canvas>
+    </main>
+
+    <footer>
+      <input type="color" id="color-picker" value="#000000">
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
